@@ -1,6 +1,8 @@
 package org.example.desafio.services;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import org.example.desafio.dao.FornecedorDao;
 import org.example.desafio.entities.Fornecedor;
 import org.example.desafio.interfaces.IFornecedorService;
 
@@ -13,6 +15,10 @@ import java.util.stream.Collectors;
 public class FornecedorService implements IFornecedorService {
 
     List<Fornecedor> fornecedores = new ArrayList<>();
+
+    @Inject
+    private FornecedorDao fornecedorDao;
+
     public FornecedorService() {
         fornecedores.add(new Fornecedor(1L,"joao","joao","0000000","teste"));
         fornecedores.add(new Fornecedor(2L,"joaquim","joaquim","111111","teste2"));
