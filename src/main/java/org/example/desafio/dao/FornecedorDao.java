@@ -19,12 +19,11 @@ public class FornecedorDao implements InterfaceDao<Fornecedor> {
     @Override
     public void create(Fornecedor fornecedor) {
         try {
-            stmt = con.prepareStatement("insert into fornecedor(id, name, email, comment, cnpj) values (?,?,?,?,?)");
-            stmt.setLong(1, fornecedor.getId());
-            stmt.setString(2, fornecedor.getName());
-            stmt.setString(3, fornecedor.getEmail());
-            stmt.setString(4, fornecedor.getComment());
-            stmt.setString(5, fornecedor.getCnpj());
+            stmt = con.prepareStatement("insert into fornecedor(name, email, comment, cnpj) values (?,?,?,?)");
+            stmt.setString(1, fornecedor.getName());
+            stmt.setString(2, fornecedor.getEmail());
+            stmt.setString(3, fornecedor.getComment());
+            stmt.setString(4, fornecedor.getCnpj());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -80,6 +79,21 @@ public class FornecedorDao implements InterfaceDao<Fornecedor> {
             Logger.getLogger(FornecedorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return fornecedor;
+    }
+
+    @Override
+    public void update(Fornecedor fornecedor) {
+        try {
+            stmt = con.prepareStatement("UPDATE fornecedor set name = ?, email = ?, comment = ?, cnpj = ? where id = ?");
+            stmt.setString(1, fornecedor.getName());
+            stmt.setString(2, fornecedor.getEmail());
+            stmt.setString(3, fornecedor.getComment());
+            stmt.setString(4, fornecedor.getCnpj());
+            stmt.setLong(5, fornecedor.getId());
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
     }
 
     public void delete(Long id) {

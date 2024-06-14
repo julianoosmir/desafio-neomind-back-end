@@ -3,13 +3,8 @@ package org.example.desafio;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
-
 import org.example.desafio.entities.Fornecedor;
 import org.example.desafio.interfaces.IFornecedorService;
-import org.example.desafio.services.FornecedorService;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Path("/fornecedor")
@@ -48,14 +43,14 @@ public class FornecedorController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Fornecedor> create(Fornecedor fornecedor) {
-        return this.fornecedorService.save(fornecedor);
+    public void create(Fornecedor fornecedor) {
+        this.fornecedorService.save(fornecedor);
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public Fornecedor update(Fornecedor fornecedor) {
-        return this.fornecedorService.update(fornecedor);
+    public void update(Fornecedor fornecedor) {
+        this.fornecedorService.update(fornecedor);
     }
 
 }

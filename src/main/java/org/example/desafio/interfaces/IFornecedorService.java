@@ -9,7 +9,7 @@ public interface IFornecedorService {
 
     List<Fornecedor> getAll();
     Fornecedor getById(Long id);
-    List<Fornecedor> save(Fornecedor fornecedor);
-    Fornecedor update(Fornecedor fornecedor);
+    void save(Fornecedor fornecedor);
+    void update(Fornecedor fornecedor);
     Void delete(Long fornecedor);
 }
