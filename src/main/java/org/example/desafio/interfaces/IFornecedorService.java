@@ -8,8 +8,8 @@ import java.util.List;
 public interface IFornecedorService {
 
     List<Fornecedor> getAll();
-    Fornecedor getById(Long id);
+    Fornecedor getById(int id);
     void save(Fornecedor fornecedor);
     void update(Fornecedor fornecedor);
-    Void delete(Long fornecedor);
+    Void delete(int fornecedor);
 }

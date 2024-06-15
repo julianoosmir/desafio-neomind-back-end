@@ -1,25 +1,31 @@
 package org.example.desafio.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
-
+@Entity
+@Table(name = "fornecedor")
 public class Fornecedor {
-
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer id;
+
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "email", nullable = false)
     private String email;
-    private String comment;
+
+    @Column(name = "cnpj", nullable = false, length = 20)
     private String cnpj;
+
+    @Column(name = "comment", nullable = false)
+    private String comment;
 
     public Fornecedor() {
     }
 
-    public Fornecedor(Long id, String name, String email, String cnpj, String comment) {
+    public Fornecedor(Integer id, String name, String email, String cnpj, String comment) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -27,11 +33,11 @@ public class Fornecedor {
         this.comment = comment;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -51,6 +57,14 @@ public class Fornecedor {
         this.email = email;
     }
 
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
     public String getComment() {
         return comment;
     }
@@ -59,11 +73,4 @@ public class Fornecedor {
         this.comment = comment;
     }
 
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
 }

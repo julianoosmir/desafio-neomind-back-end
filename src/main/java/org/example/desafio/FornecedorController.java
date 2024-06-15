@@ -30,14 +30,14 @@ public class FornecedorController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Fornecedor getById(@PathParam("id") Long id) {
+    public Fornecedor getById(@PathParam("id") int id) {
         return this.fornecedorService.getById(id);
     }
 
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void delete(@PathParam("id") Long id) {
+    public void delete(@PathParam("id") int id) {
        this.fornecedorService.delete(id);
     }
 

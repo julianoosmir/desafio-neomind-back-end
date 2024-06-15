@@ -43,7 +43,7 @@ public class FornecedorDao implements InterfaceDao<Fornecedor> {
                 System.out.println(rs);
                 Fornecedor fornecedor = new Fornecedor();
 
-                fornecedor.setId(rs.getLong("id"));
+                fornecedor.setId(rs.getInt("id"));
                 fornecedor.setName(rs.getString("name"));
                 fornecedor.setComment(rs.getString("comment"));
                 fornecedor.setCnpj(rs.getString("cnpj"));
@@ -69,7 +69,7 @@ public class FornecedorDao implements InterfaceDao<Fornecedor> {
             rs = stmt.executeQuery();
             fornecedor = new Fornecedor();
             while (rs.next()) {
-                fornecedor.setId(rs.getLong("id"));
+                fornecedor.setId(rs.getInt("id"));
                 fornecedor.setName(rs.getString("name"));
                 fornecedor.setComment(rs.getString("comment"));
                 fornecedor.setCnpj(rs.getString("cnpj"));
