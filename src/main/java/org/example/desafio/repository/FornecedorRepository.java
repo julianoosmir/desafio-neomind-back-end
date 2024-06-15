@@ -5,12 +5,13 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.example.desafio.entities.Fornecedor;
 import jakarta.transaction.Transactional;
+import org.example.desafio.interfaces.IFornecedorRepository;
 
 
 import java.util.List;
 
 @ApplicationScoped
-public class FornecedorRepository {
+public class FornecedorRepository implements IFornecedorRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -18,18 +19,18 @@ public class FornecedorRepository {
         return entityManager.createQuery("SELECT e FROM Fornecedor e", Fornecedor.class).getResultList();
     }
 
-    public Fornecedor getById(int id){
+    public Fornecedor findById(int id){
         return entityManager.createQuery("SELECT e FROM Fornecedor e where e.id = :id", Fornecedor.class)
                 .setParameter("id", id).getSingleResult();
 
     }
 
     @Transactional
-    public void salvar(Fornecedor fornecedor) {
+    public void create(Fornecedor fornecedor) {
         this.entityManager.merge(fornecedor);
     }
     @Transactional
-    public void alterar(Fornecedor fornecedor) {
+    public void update(Fornecedor fornecedor) {
         this.entityManager.createQuery("UPDATE Fornecedor f set f.name = :name, f.email = :email," +
                                         "f.comment = :comment, f.cnpj = :cnpj where f.id = :id")
                 .setParameter("name", fornecedor.getName())

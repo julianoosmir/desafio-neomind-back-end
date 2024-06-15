@@ -1,4 +1,4 @@
-package org.example.desafio;
+package org.example.desafio.controlles;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

@@ -1,4 +1,4 @@
-package org.example.desafio;
+package org.example.desafio.controlles;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -14,14 +14,6 @@ public class FornecedorController {
     private IFornecedorService fornecedorService;
 
     @GET
-    @Produces("text/plain")
-    public String hello() {
-        return "Hello, Fornecedor!";
-    }
-
-
-    @GET
-    @Path("/todos")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Fornecedor> getAll() {
         return this.fornecedorService.getAll();
