@@ -1,6 +1,5 @@
 package org.example.desafio.interfaces;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import org.example.desafio.entities.Fornecedor;
 
 import java.util.List;
