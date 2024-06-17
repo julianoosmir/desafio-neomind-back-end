@@ -56,7 +56,21 @@ Conexão com o banco de dados (adicinar no tomee.xml):
     </Resource>
 
 ``` 
+## Entidade Fornecedor
 
+run script in database sql server
 
+```
+DROP TABLE IF EXISTS dbo.fornecedor
+go
+CREATE TABLE fornecedor (
+                            id int IDENTITY(1, 1) NOT NULL primary key,
+                            name varchar(255) NOT NULL,
+                            email varchar(255) NOT NULL,
+                            cnpj varchar(20) NOT NULL,
+                            comment varchar(255) NOT NULL,
 
+);
+go
+``` 
 
